@@ -1,5 +1,5 @@
 # MIDIDocs
-USB-MIDI Documentation for Zoom G5 MultiFX Pedal
+USB-MIDI Documentation for Zoom MultiFX Pedals
 
 # Connecting to the device
 The Zoom G5 communicated using Sysex messages, these have a specific format as follows:
@@ -10,11 +10,20 @@ To get the Vendor ID and Device ID you can send a MIDI Identity Sysex Message:
 
     F0 7E 00 06 01 F7
 
-This response is this:
+This response is this for the Zoom G5:
 
     F0 7E 00 06 02     52          5B 00 00 00 31 2E 32 30 F7
            ^ Device ID  ^ Vendor ID ^ Product ID
            
+Device ID and Vendor ID are always the same but the Product ID Changes
+    
+    Zoom G3: 5A
+    Zoom G5: 5B
+    Zoom G3X: Unknown
+    Zoom G3n: Unknown
+    Zoom G3xn: Unknown
+    Zoom G5n: Unknown
+    
 # Sending Messages
 ## Editor Mode - Command 50/51
 For most commands below, the device needs to be put in Editor Mode, this is done by sending command 50 to turn it on,  and 51 to turn it off.
